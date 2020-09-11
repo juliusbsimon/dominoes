@@ -1,0 +1,57 @@
+# Project: Dominoes GT Style
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = Dominoes_GT_Style_private.res
+OBJ  = main.o bones.o functions.o play.o user.o shiftDelete.o cpu.o cpu2.o textcolor.o $(RES)
+LINKOBJ  = main.o bones.o functions.o play.o user.o shiftDelete.o cpu.o cpu2.o textcolor.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib"  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = "Dominoes GT Style.exe"
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before "Dominoes GT Style.exe" all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "Dominoes GT Style.exe" $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+bones.o: bones.c
+	$(CC) -c bones.c -o bones.o $(CFLAGS)
+
+functions.o: functions.c
+	$(CC) -c functions.c -o functions.o $(CFLAGS)
+
+play.o: play.c
+	$(CC) -c play.c -o play.o $(CFLAGS)
+
+user.o: user.c
+	$(CC) -c user.c -o user.o $(CFLAGS)
+
+shiftDelete.o: shiftDelete.c
+	$(CC) -c shiftDelete.c -o shiftDelete.o $(CFLAGS)
+
+cpu.o: cpu.c
+	$(CC) -c cpu.c -o cpu.o $(CFLAGS)
+
+cpu2.o: cpu2.c
+	$(CC) -c cpu2.c -o cpu2.o $(CFLAGS)
+
+textcolor.o: textcolor.c
+	$(CC) -c textcolor.c -o textcolor.o $(CFLAGS)
+
+Dominoes_GT_Style_private.res: Dominoes_GT_Style_private.rc 
+	$(WINDRES) -i Dominoes_GT_Style_private.rc --input-format=rc -o Dominoes_GT_Style_private.res -O coff 
